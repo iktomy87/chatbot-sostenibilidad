@@ -1,0 +1,11 @@
+node_modules
+.env
+.env.local
+.env.production
+.env.development
+uploads/
+dist/
+build/
+*.log
+.DS_Store
+facturas_prueba/

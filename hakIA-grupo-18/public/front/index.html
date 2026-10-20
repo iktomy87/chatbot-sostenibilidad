@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AsPym — Auditor de sostenibilidad para pymes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html" aria-label="Ir al inicio">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20C4 12 9 5 20 4C19 15 12 20 4 20Z" fill="#F3FBF5"/>
+        <path d="M4 20C7 16 10 12.5 15 9" stroke="#1F5B3E" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </span>
+    AsPym
+  </a>
+
+  <button class="menu-btn" id="menu-toggle" aria-haspopup="true" aria-expanded="false">
+    Menú
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <nav class="menu-panel" id="menu-panel" aria-label="Menú principal">
+    <a href="index.html" class="active"><span class="leaf-dot"></span>Inicio</a>
+    <a href="como-funciona.html"><span class="leaf-dot"></span>Cómo funciona</a>
+    <hr>
+    <a href="login.html"><span class="leaf-dot"></span>Iniciar sesión</a>
+    <a href="sobre-nosotros.html"><span class="leaf-dot"></span>Sobre nosotros</a>
+    <a href="contacto.html"><span class="leaf-dot"></span>Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="chip"><span class="dot"></span>Auditoría de sostenibilidad para pymes</span>
+  <h1>Convertí tus facturas en un <em>plan de reducción</em> de emisiones</h1>
+  <p class="sub">
+    Subí tus facturas de energía, transporte y compras. AsPym calcula tu huella
+    de carbono y te propone acciones concretas para reducirla, sin necesitar un consultor.
+  </p>
+  <button class="cta" id="hero-cta">
+    Analizar mis facturas
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="hero-foot">Sin registro para probar el diagnóstico inicial</div>
+</section>
+
+<div class="app-wrap" id="app-wrap">
+
+  <!-- PASO 1: datos de la empresa y período a auditar -->
+  <div class="card step-card" id="setup-card">
+    <span class="chip"><span class="dot"></span>Paso 1</span>
+    <h2>1. Datos de la empresa y período a auditar</h2>
+
+    <form id="setup-form">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="input-nombre">Nombre de la empresa *</label>
+          <input type="text" id="input-nombre" placeholder="Ej: Metalúrgica del Sur" required>
+        </div>
+        <div class="form-field">
+          <label for="input-sector">Sector</label>
+          <input type="text" id="input-sector" placeholder="Ej: gastronomía, metalúrgica">
+        </div>
+        <div class="form-field">
+          <label for="input-region">Región</label>
+          <input type="text" id="input-region" value="Argentina">
+        </div>
+        <div class="form-field">
+          <label for="input-empleados">Cantidad de empleados</label>
+          <input type="number" id="input-empleados" min="0" placeholder="Ej: 12">
+        </div>
+        <div class="form-field">
+          <label for="input-telefono">Teléfono</label>
+          <input type="text" id="input-telefono" placeholder="Ej: +54 11 1234-5678">
+        </div>
+        <div class="form-field">
+          <label for="input-sitio-web">Sitio web</label>
+          <input type="text" id="input-sitio-web" placeholder="Ej: www.ejemplo.com">
+        </div>
+        <div class="form-field">
+          <label for="input-superficie">Superficie (m²)</label>
+          <input type="number" id="input-superficie" min="0" placeholder="Ej: 150">
+        </div>
+        <div class="form-field">
+          <label for="input-facturacion">Facturación Anual ($)</label>
+          <input type="number" id="input-facturacion" min="0" placeholder="Ej: 5000000">
+        </div>
+        <div class="form-field">
+          <label for="input-tamano">Tamaño de empresa</label>
+          <select id="input-tamano">
+            <option value="">Seleccionar...</option>
+            <option value="micro">Micro</option>
+            <option value="pequeña">Pequeña</option>
+            <option value="mediana">Mediana</option>
+            <option value="grande">Grande</option>
+          </select>
+        </div>
+        <div class="form-field" style="grid-column:1/-1;">
+          <label for="input-periodo">Período a auditar *</label>
+          <input type="text" id="input-periodo" placeholder="Ej: 2025-Anual" required>
+        </div>
+      </div>
+      <button type="submit" class="cta" id="btn-crear-auditoria">
+        Iniciar auditoría
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+    <p class="lead-sm" id="setup-hint">Se crea la empresa y una nueva auditoría en progreso. Luego vas a poder chatear y subir facturas acá abajo.</p>
+  </div>
+
+  <!-- PASO 2 + PASO 3: siempre visibles junto al paso 1 -->
+  <div class="two-col">
+
+    <div class="card chat-panel">
+      <h2>2. Relevamiento conversacional</h2>
+      <div class="chat-log" id="chat-log"></div>
+      <div class="composer-simple">
+        <input type="text" id="composer-input" placeholder="Ej: gastamos 850 kWh de luz en enero">
+        <button class="cta" id="send-btn">Enviar</button>
+      </div>
+    </div>
+
+    <div class="right-col">
+
+      <div class="card summary-card">
+        <div class="summary-head">
+          <h2>Resumen de la auditoría</h2>
+          <button class="icon-btn-sm" id="btn-refrescar" title="Actualizar resumen">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4v6h6M20 20v-6h-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 15a7 7 0 0012.6 2.1M18.5 9A7 7 0 005.9 6.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="summary-total">
+          <div class="num" id="resumen-total-co2">0 kg CO2e</div>
+          <div class="label">Total estimado en el período</div>
+        </div>
+        <div id="resumen-categorias" class="cat-list"></div>
+        <button class="cta-ghost full" id="btn-descargar-pdf">
+          Descargar reporte PDF
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4v11M12 15l-4-4M12 15l4-4M5 19h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="card invoices-card">
+        <h2>3. Cargar factura</h2>
+
+        <form id="upload-form" class="upload-form">
+          <label class="file-picker" for="input-archivo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span id="file-picker-label">Seleccionar archivo</span>
+          </label>
+          <input type="file" id="input-archivo" accept=".pdf,.jpg,.jpeg,.png" hidden>
+
+          <select id="input-categoria-manual">
+            <option value="">Detectar automáticamente</option>
+            <option value="electricidad">Electricidad</option>
+            <option value="gas_natural">Gas natural</option>
+            <option value="gas_licuado_glp">Gas licuado (GLP)</option>
+            <option value="combustible_nafta">Combustible (nafta)</option>
+            <option value="combustible_gasoil">Combustible (gasoil)</option>
+            <option value="agua">Agua</option>
+            <option value="residuos">Residuos</option>
+            <option value="transporte_terrestre_carga">Transporte de carga</option>
+            <option value="transporte_empleados">Transporte de empleados</option>
+          </select>
+
+          <button type="submit" class="cta-ghost full" id="btn-subir-factura">Subir y analizar</button>
+        </form>
+        <p class="lead-sm">Se acepta PDF o imagen (foto/escaneo). El sistema intenta extraer categoría y consumo automáticamente.</p>
+
+        <h2 class="invoices-list-title">Facturas cargadas</h2>
+        <div id="lista-facturas"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="site-footer">AsPym analiza tus facturas para estimar emisiones. Los valores son orientativos.</footer>
+
+<script src="app.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

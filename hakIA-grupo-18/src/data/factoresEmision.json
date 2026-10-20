@@ -1,0 +1,39 @@
+{
+  "version": "2025-1",
+  "nota": "Factores orientativos en kg CO2e por unidad de consumo. Basados en promedios públicos (IPCC, IEA, Factor Argentina de la Secretaría de Energía). Ajustar según fuente oficial vigente antes de uso en auditorías reales.",
+  "regiones": {
+    "Argentina": {
+      "electricidad": { "unidad": "kWh", "factor": 0.37, "descripcion": "Factor de emisión de la red eléctrica (SADI)" },
+      "gas_natural": { "unidad": "m3", "factor": 2.02, "descripcion": "Combustión de gas natural de red" },
+      "gas_licuado_glp": { "unidad": "kg", "factor": 2.98, "descripcion": "Gas licuado de petróleo (garrafa)" },
+      "combustible_nafta": { "unidad": "litro", "factor": 2.31, "descripcion": "Nafta para vehículos" },
+      "combustible_gasoil": { "unidad": "litro", "factor": 2.68, "descripcion": "Gasoil/diesel para vehículos o generadores" },
+      "agua": { "unidad": "m3", "factor": 0.344, "descripcion": "Tratamiento y distribución de agua potable" },
+      "residuos": { "unidad": "kg", "factor": 0.45, "descripcion": "Residuos sólidos urbanos sin separar, a relleno sanitario" },
+      "transporte_terrestre_carga": { "unidad": "km", "factor": 0.9, "descripcion": "Transporte de carga en camión (promedio)" },
+      "transporte_empleados": { "unidad": "km", "factor": 0.171, "descripcion": "Transporte de empleados en auto particular (promedio)" }
+    },
+    "generico": {
+      "electricidad": { "unidad": "kWh", "factor": 0.45, "descripcion": "Promedio global de red eléctrica" },
+      "gas_natural": { "unidad": "m3", "factor": 2.0, "descripcion": "Combustión de gas natural" },
+      "gas_licuado_glp": { "unidad": "kg", "factor": 2.98, "descripcion": "GLP" },
+      "combustible_nafta": { "unidad": "litro", "factor": 2.31, "descripcion": "Nafta" },
+      "combustible_gasoil": { "unidad": "litro", "factor": 2.68, "descripcion": "Gasoil/diesel" },
+      "agua": { "unidad": "m3", "factor": 0.35, "descripcion": "Agua potable" },
+      "residuos": { "unidad": "kg", "factor": 0.5, "descripcion": "Residuos a relleno sanitario" },
+      "transporte_terrestre_carga": { "unidad": "km", "factor": 0.9, "descripcion": "Transporte de carga" },
+      "transporte_empleados": { "unidad": "km", "factor": 0.171, "descripcion": "Transporte de empleados" }
+    }
+  },
+  "categorias_validas": [
+    "electricidad",
+    "gas_natural",
+    "gas_licuado_glp",
+    "combustible_nafta",
+    "combustible_gasoil",
+    "agua",
+    "residuos",
+    "transporte_terrestre_carga",
+    "transporte_empleados"
+  ]
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión — AsPym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .auth-wrap{
+    max-width:400px;
+    margin:64px auto 80px;
+    padding:0 24px;
+  }
+  .auth-card{
+    padding:34px 30px 28px;
+    text-align:center;
+  }
+  .auth-card .brand-mark{
+    margin:0 auto 18px;
+  }
+  .auth-card h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.6rem;
+    margin:0 0 6px;
+  }
+  .auth-card p.lead{
+    font-size:0.9rem;
+    color:var(--muted);
+    margin:0 0 26px;
+  }
+  .auth-card form{ text-align:left; }
+  .row-between{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+  }
+  .row-between a{
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--forest-dark);
+  }
+  .row-between a:hover{ text-decoration:underline; }
+  .auth-card .cta{ width:100%; justify-content:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html" aria-label="Ir al inicio">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20C4 12 9 5 20 4C19 15 12 20 4 20Z" fill="#F3FBF5"/>
+        <path d="M4 20C7 16 10 12.5 15 9" stroke="#1F5B3E" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </span>
+    AsPym
+  </a>
+
+  <button class="menu-btn" id="menu-toggle" aria-haspopup="true" aria-expanded="false">
+    Menú
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <nav class="menu-panel" id="menu-panel" aria-label="Menú principal">
+    <a href="index.html"><span class="leaf-dot"></span>Inicio</a>
+    <a href="como-funciona.html"><span class="leaf-dot"></span>Cómo funciona</a>
+    <hr>
+    <a href="login.html" class="active"><span class="leaf-dot"></span>Iniciar sesión</a>
+    <a href="sobre-nosotros.html"><span class="leaf-dot"></span>Sobre nosotros</a>
+    <a href="contacto.html"><span class="leaf-dot"></span>Contacto</a>
+  </nav>
+</header>
+
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <span class="brand-mark" style="display:inline-flex;">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20C4 12 9 5 20 4C19 15 12 20 4 20Z" fill="#F3FBF5"/>
+        <path d="M4 20C7 16 10 12.5 15 9" stroke="#1F5B3E" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <h1>Iniciar sesión</h1>
+    <p class="lead">Entrá a tu panel de auditoría de sostenibilidad.</p>
+
+    <div class="form-success" id="login-success">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Sesión iniciada (simulada). Todavía no hay backend conectado.
+    </div>
+
+    <form id="login-form">
+      <div class="form-field">
+        <label for="login-email">Correo electrónico</label>
+        <input type="email" id="login-email" name="email" placeholder="vos@tuempresa.com" required>
+      </div>
+
+      <div class="form-field">
+        <label for="login-password">Contraseña</label>
+        <input type="password" id="login-password" name="password" placeholder="••••••••" required minlength="6">
+      </div>
+
+      <div class="row-between">
+        <label class="checkbox-row">
+          <input type="checkbox" name="remember">
+          Recordarme
+        </label>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="cta">Iniciar sesión</button>
+    </form>
+
+    <p class="form-footnote">¿No tenés cuenta todavía? <a href="contacto.html">Solicitá acceso</a></p>
+  </div>
+</div>
+
+<footer class="site-footer">AsPym analiza tus facturas para estimar emisiones. Los valores son orientativos.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

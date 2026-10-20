@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo funciona — AsPym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .steps{
+    max-width:760px;
+    margin:16px auto 60px;
+    padding:0 24px;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:20px;
+    padding:26px 0;
+    border-top:1px solid var(--sage-line);
+  }
+  .step:first-child{ border-top:none; padding-top:6px; }
+  .step .num{
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    color:var(--forest-dark);
+    width:40px; height:40px;
+    border-radius:50%;
+    background:var(--mist);
+    border:1px solid var(--sage-line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .step h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.15rem;
+    margin:6px 0 8px;
+  }
+  .step p{
+    font-size:0.92rem;
+    color:var(--muted);
+    line-height:1.6;
+    margin:0;
+    max-width:520px;
+  }
+
+  .cta-band{
+    max-width:760px;
+    margin:0 auto 70px;
+    padding:0 24px;
+    text-align:center;
+  }
+  .cta-band .card{
+    padding:34px 28px;
+  }
+  .cta-band h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.4rem;
+    margin:0 0 10px;
+  }
+  .cta-band p{
+    font-size:0.92rem;
+    color:var(--muted);
+    margin:0 0 22px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html" aria-label="Ir al inicio">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20C4 12 9 5 20 4C19 15 12 20 4 20Z" fill="#F3FBF5"/>
+        <path d="M4 20C7 16 10 12.5 15 9" stroke="#1F5B3E" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </span>
+    AsPym
+  </a>
+
+  <button class="menu-btn" id="menu-toggle" aria-haspopup="true" aria-expanded="false">
+    Menú
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <nav class="menu-panel" id="menu-panel" aria-label="Menú principal">
+    <a href="index.html"><span class="leaf-dot"></span>Inicio</a>
+    <a href="como-funciona.html" class="active"><span class="leaf-dot"></span>Cómo funciona</a>
+    <hr>
+    <a href="login.html"><span class="leaf-dot"></span>Iniciar sesión</a>
+    <a href="sobre-nosotros.html"><span class="leaf-dot"></span>Sobre nosotros</a>
+    <a href="contacto.html"><span class="leaf-dot"></span>Contacto</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <span class="chip"><span class="dot"></span>El proceso</span>
+  <h1>De la factura al plan de reducción</h1>
+  <p class="sub">Cuatro pasos, sin planillas manuales ni reuniones con un consultor.</p>
+</section>
+
+<div class="steps">
+  <div class="step">
+    <span class="num">01</span>
+    <div>
+      <h3>Subís tus facturas</h3>
+      <p>Energía, transporte y compras — en PDF, foto o escaneo. AsPym las lee automáticamente, sin plantillas que completar.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="num">02</span>
+    <div>
+      <h3>Calculamos tu huella</h3>
+      <p>Cada consumo se convierte en kg de CO2e usando factores de emisión estándar, agrupados por categoría y por mes.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="num">03</span>
+    <div>
+      <h3>Recibís un reporte claro</h3>
+      <p>Un resumen visual de dónde está tu mayor impacto, sin jerga técnica, listo para compartir con tu equipo.</p>
+    </div>
+  </div>
+  <div class="step">
+    <span class="num">04</span>
+    <div>
+      <h3>Aplicás recomendaciones</h3>
+      <p>Acciones concretas y priorizadas por impacto, para que sepas por dónde empezar a reducir emisiones esta misma semana.</p>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="card">
+    <h2>¿Listo para tu primer reporte?</h2>
+    <p>Probá el diagnóstico inicial con una factura, sin necesidad de crear una cuenta.</p>
+    <a href="index.html" class="cta">
+      Ir al chat de auditoría
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+<footer class="site-footer">AsPym analiza tus facturas para estimar emisiones. Los valores son orientativos.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

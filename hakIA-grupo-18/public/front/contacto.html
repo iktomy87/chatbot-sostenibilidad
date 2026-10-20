@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — AsPym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-grid{
+    max-width:920px;
+    margin:8px auto 80px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:22px;
+    align-items:start;
+  }
+  .info-card{
+    padding:28px 26px;
+  }
+  .info-card h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.25rem;
+    margin:0 0 6px;
+  }
+  .info-card p{
+    font-size:0.88rem;
+    color:var(--muted);
+    line-height:1.55;
+    margin:0 0 22px;
+  }
+  .info-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    margin-bottom:18px;
+  }
+  .info-item .ico{
+    width:34px; height:34px;
+    border-radius:10px;
+    background:var(--mist);
+    border:1px solid var(--sage-line);
+    display:flex; align-items:center; justify-content:center;
+    flex:0 0 auto;
+  }
+  .info-item .ico svg{ width:16px; height:16px; color:var(--forest-dark); }
+  .info-item .label{ font-size:0.78rem; color:var(--muted); }
+  .info-item .value{ font-size:0.9rem; font-weight:600; }
+
+  .form-card{ padding:30px 30px 26px; }
+  .form-card h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.25rem;
+    margin:0 0 20px;
+  }
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+
+  @media (max-width:760px){
+    .contact-grid{ grid-template-columns:1fr; }
+    .two-col{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html" aria-label="Ir al inicio">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20C4 12 9 5 20 4C19 15 12 20 4 20Z" fill="#F3FBF5"/>
+        <path d="M4 20C7 16 10 12.5 15 9" stroke="#1F5B3E" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </span>
+    AsPym
+  </a>
+
+  <button class="menu-btn" id="menu-toggle" aria-haspopup="true" aria-expanded="false">
+    Menú
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <nav class="menu-panel" id="menu-panel" aria-label="Menú principal">
+    <a href="index.html"><span class="leaf-dot"></span>Inicio</a>
+    <a href="como-funciona.html"><span class="leaf-dot"></span>Cómo funciona</a>
+    <hr>
+    <a href="login.html"><span class="leaf-dot"></span>Iniciar sesión</a>
+    <a href="sobre-nosotros.html"><span class="leaf-dot"></span>Sobre nosotros</a>
+    <a href="contacto.html" class="active"><span class="leaf-dot"></span>Contacto</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <span class="chip"><span class="dot"></span>Hablemos</span>
+  <h1>Contanos sobre tu pyme</h1>
+  <p class="sub">Escribinos para pedir acceso, resolver dudas sobre el cálculo de emisiones o proponer una integración.</p>
+</section>
+
+<div class="contact-grid">
+
+  <div class="card info-card">
+    <h2>Otras formas de contacto</h2>
+    <p>Respondemos consultas de lunes a viernes.</p>
+
+    <div class="info-item">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <div class="label">Correo</div>
+        <div class="value">hola@aspym.app</div>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 005 5L16 12l5 2v4a2 2 0 01-2 2C10.5 20 4 13.5 4 5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <div class="label">Teléfono</div>
+        <div class="value">+54 11 5555-0192</div>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+      </span>
+      <div>
+        <div class="label">Oficina</div>
+        <div class="value">Buenos Aires, Argentina</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card form-card">
+    <h2>Enviar un mensaje</h2>
+
+    <div class="form-success" id="contact-success">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Mensaje enviado (simulado). Todavía no hay backend conectado.
+    </div>
+
+    <form id="contact-form">
+      <div class="two-col">
+        <div class="form-field">
+          <label for="contact-name">Nombre</label>
+          <input type="text" id="contact-name" name="name" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-field">
+          <label for="contact-email">Correo electrónico</label>
+          <input type="email" id="contact-email" name="email" placeholder="vos@tuempresa.com" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-company">Empresa <span class="hint">(opcional)</span></label>
+        <input type="text" id="contact-company" name="company" placeholder="Nombre de tu pyme">
+      </div>
+
+      <div class="form-field">
+        <label for="contact-message">Mensaje</label>
+        <textarea id="contact-message" name="message" placeholder="Contanos qué necesitás..." required></textarea>
+      </div>
+
+      <button type="submit" class="cta">Enviar mensaje</button>
+    </form>
+  </div>
+
+</div>
+
+<footer class="site-footer">AsPym analiza tus facturas para estimar emisiones. Los valores son orientativos.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

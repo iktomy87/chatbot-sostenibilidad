@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre nosotros — AsPym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .story{
+    max-width:720px;
+    margin:8px auto 0;
+    padding:0 24px;
+    font-size:0.98rem;
+    line-height:1.75;
+    color:var(--ink);
+  }
+  .story p{ margin:0 0 18px; }
+
+  .stats-row{
+    max-width:920px;
+    margin:34px auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .stat-card{
+    padding:22px 20px;
+    text-align:center;
+  }
+  .stat-card .num{
+    font-family:var(--font-mono);
+    font-size:1.7rem;
+    font-weight:500;
+    color:var(--forest-dark);
+    display:block;
+    margin-bottom:4px;
+  }
+  .stat-card .lbl{
+    font-size:0.8rem;
+    color:var(--muted);
+  }
+
+  .values{
+    max-width:920px;
+    margin:0 auto 60px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .value-card{
+    padding:22px 20px;
+  }
+  .value-card .ico{
+    width:36px; height:36px;
+    border-radius:10px;
+    background:var(--mist);
+    border:1px solid var(--sage-line);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+  }
+  .value-card .ico svg{ width:17px; height:17px; color:var(--forest-dark); }
+  .value-card h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.02rem;
+    margin:0 0 6px;
+  }
+  .value-card p{
+    font-size:0.86rem;
+    color:var(--muted);
+    line-height:1.55;
+    margin:0;
+  }
+
+  @media (max-width:760px){
+    .stats-row, .values{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html" aria-label="Ir al inicio">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20C4 12 9 5 20 4C19 15 12 20 4 20Z" fill="#F3FBF5"/>
+        <path d="M4 20C7 16 10 12.5 15 9" stroke="#1F5B3E" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </span>
+    AsPym
+  </a>
+
+  <button class="menu-btn" id="menu-toggle" aria-haspopup="true" aria-expanded="false">
+    Menú
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <nav class="menu-panel" id="menu-panel" aria-label="Menú principal">
+    <a href="index.html"><span class="leaf-dot"></span>Inicio</a>
+    <a href="como-funciona.html"><span class="leaf-dot"></span>Cómo funciona</a>
+    <hr>
+    <a href="login.html"><span class="leaf-dot"></span>Iniciar sesión</a>
+    <a href="sobre-nosotros.html" class="active"><span class="leaf-dot"></span>Sobre nosotros</a>
+    <a href="contacto.html"><span class="leaf-dot"></span>Contacto</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <span class="chip"><span class="dot"></span>Sobre nosotros</span>
+  <h1>Sostenibilidad al alcance de cualquier pyme</h1>
+  <p class="sub">Creemos que medir tu huella de carbono no debería requerir un consultor ni una planilla interminable.</p>
+</section>
+
+<div class="story">
+  <p>
+    AsPym nace de una pregunta simple: ¿por qué reportar emisiones es tan complicado para
+    una empresa chica? Las pymes representan la mayor parte del tejido productivo, pero
+    casi nunca tienen el tiempo ni el presupuesto para pagar una auditoría de sostenibilidad
+    tradicional.
+  </p>
+  <p>
+    Por eso construimos una herramienta que lee las facturas que ya generás — energía,
+    transporte, compras — y las convierte automáticamente en un reporte de emisiones claro,
+    con recomendaciones concretas y accionables para reducirlas.
+  </p>
+  <p>
+    No reemplazamos a los especialistas en sostenibilidad: les damos a las pymes un primer
+    diagnóstico honesto para que puedan empezar a actuar hoy, y crecer desde ahí.
+  </p>
+</div>
+
+<div class="stats-row">
+  <div class="card stat-card">
+    <span class="num">1.2k</span>
+    <span class="lbl">pymes auditadas</span>
+  </div>
+  <div class="card stat-card">
+    <span class="num">38 t</span>
+    <span class="lbl">CO2e reducidas por mes</span>
+  </div>
+  <div class="card stat-card">
+    <span class="num">4 min</span>
+    <span class="lbl">promedio para el primer reporte</span>
+  </div>
+</div>
+
+<div class="values">
+  <div class="card value-card">
+    <span class="ico">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+    </span>
+    <h3>Simple primero</h3>
+    <p>Si un reporte no se entiende en un vistazo, no sirve. Todo lo que mostramos apunta a una acción concreta.</p>
+  </div>
+  <div class="card value-card">
+    <span class="ico">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12l6 6L20 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+    <h3>Datos, no promesas</h3>
+    <p>Cada número sale de tus propias facturas. Nada de estimaciones genéricas de industria.</p>
+  </div>
+  <div class="card value-card">
+    <span class="ico">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+    <h3>Progreso continuo</h3>
+    <p>Reducir emisiones es un proceso, no un evento único. Acompañamos mes a mes.</p>
+  </div>
+</div>
+
+<footer class="site-footer">AsPym analiza tus facturas para estimar emisiones. Los valores son orientativos.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
